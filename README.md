@@ -5,7 +5,7 @@
 Currently we have: GB,GBC,GBA,SNES
 
 
-Virtual Console .cia are made with New Super Ultimate Injector 3DS.
+Virtual Console .cia are made with New Super Ultimate Injector 3DS
 https://www.gamebrew.org/wiki/New_Super_Ultimate_Injector_3DS
 
 
