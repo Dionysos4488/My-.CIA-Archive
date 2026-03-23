@@ -1,4 +1,7 @@
 # My-.CIA-Archive
-.cia files for use with QR-Code/FBI
+.cia files and QR-Code for use with FBI
+
+Currentliy we have:
+GB,GBC,GBA,SNES
 
 QR-Codes are made with https://createaqr.app/ 
