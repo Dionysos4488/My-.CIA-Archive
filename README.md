@@ -15,8 +15,8 @@ Currently we have:\
 ## Information
 If you know a Game that you want in the archive i can add it for you.\
 \
-I use a program i found and barely know how it works and can just use it as-is to make .cia files\
-If you want to know more about the program it is the New Super Ultimate Injector 3DS and using the debug build of beta 28\
+I use a program that i found and barely know how it works and can just use it as-is to make .cia files\
+If you want to know more about the program it is the New Super Ultimate Injector 3DS, using the debug build of beta 28\
 download and learn more about it from here: https://www.gamebrew.org/wiki/New_Super_Ultimate_Injector_3DS\
 \
 \
