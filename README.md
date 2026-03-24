@@ -16,7 +16,7 @@ I use a program that i found and barely know how it works.\
 I can just use it as-is to make .cia files.\
 If you want to know more about the program it is the New Super Ultimate Injector 3DS.\
 I am using the debug build of beta 28.\
-Download and learn more about it from here: https://www.gamebrew.org/wiki/New_Super_Ultimate_Injector_3DS\
+Download and learn more about it from here: https://www.gamebrew.org/wiki/New_Super_Ultimate_Injector_3DS
 \
 \
 Some Games are from: https://itch.io/games/made-with-gb-studio those are marked with (gbstudio)\
