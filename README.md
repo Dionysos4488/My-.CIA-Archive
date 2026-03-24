@@ -13,4 +13,4 @@ Some Games are from: https://itch.io/games/made-with-gb-studio those are marked 
 Some Games are Homebrew Games those are marked with (hbgame)\
 \
 \
-QR-Codes are made with https://createaqr.app/
+QR-Codes are made with https://createaqr.app/ (no sign-up)
