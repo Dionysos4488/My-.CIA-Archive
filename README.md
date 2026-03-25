@@ -26,4 +26,4 @@ Some Games are from: https://gbdev.io/gbcompo25.html those are marked with (comp
 Some Games are Homebrew Games those are marked with (hbgame)\
 \
 \
-QR-Codes are made with https://createaqr.app/ (no sign-up)
+QR-Codes are made with https://createaqr.app/ (no sign-up) (Error correction: L)
