@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retro Archive</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #0d1117;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .console {
+      margin: 15px auto;
+      max-width: 800px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .console-header {
+      padding: 15px;
+      background: #161b22;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .console-header:hover {
+      background: #21262d;
+    }
+
+    .games {
+      display: none;
+      padding: 10px;
+      background: #0d1117;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .game {
+      margin: 10px;
+      text-align: center;
+      width: 140px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Retro Archive</h1>
+<div id="content"></div>
+
+<script>
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementById('content');
+
+    for (const console in data) {
+
+      const consoleDiv = document.createElement('div');
+      consoleDiv.className = 'console';
+
+      const header = document.createElement('div');
+      header.className = 'console-header';
+      header.textContent = console;
+
+      const gamesDiv = document.createElement('div');
+      gamesDiv.className = 'games';
+
+      data[console].forEach(game => {
+        const gameDiv = document.createElement('div');
+        gameDiv.className = 'game';
+
+        const img = document.createElement('img');
+        img.src = game.image;
+
+        const name = document.createElement('p');
+        name.textContent = game.name;
+
+        gameDiv.appendChild(img);
+        gameDiv.appendChild(name);
+        gamesDiv.appendChild(gameDiv);
+      });
+
+      // CLICK TO TOGGLE
+      header.addEventListener('click', () => {
+        if (gamesDiv.style.display === 'flex') {
+          gamesDiv.style.display = 'none';
+        } else {
+          gamesDiv.style.display = 'flex';
+        }
+      });
+
+      consoleDiv.appendChild(header);
+      consoleDiv.appendChild(gamesDiv);
+      content.appendChild(consoleDiv);
+    }
+  });
+</script>
+
+</body>
+</html>
