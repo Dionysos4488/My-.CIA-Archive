@@ -30,7 +30,7 @@
       background: #161b22;
       cursor: pointer;
       font-size: 20px;
-      text-align: center; /* CENTERED */
+      text-align: center;
     }
 
     .console-header:hover {
@@ -39,8 +39,12 @@
 
     .games {
       display: none;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
+    }
+
+    .game-block {
+      margin-bottom: 20px; /* SPACE BETWEEN GAMES */
     }
 
     .game-name {
@@ -55,13 +59,13 @@
     }
 
     .game-name.active {
-      color: #58a6ff; /* BLUE highlight */
+      color: #58a6ff;
       font-weight: bold;
     }
 
     .image-container {
       display: none;
-      margin: 10px 0;
+      margin-top: 10px; /* SPACE ABOVE IMAGE */
     }
 
     .image-container img {
@@ -82,16 +86,24 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.9);
+      background: black; /* FULL BLACK */
       display: none;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
 
+    .lightbox-text {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
     .lightbox img {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 80%;
       border-radius: 10px;
     }
 
@@ -104,6 +116,7 @@
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
+  <div class="lightbox-text">click here to close</div>
   <img id="lightbox-img">
 </div>
 
@@ -127,6 +140,9 @@ fetch('data.json')
 
       data[console].forEach(game => {
 
+        const gameBlock = document.createElement('div');
+        gameBlock.className = 'game-block';
+
         const name = document.createElement('div');
         name.className = 'game-name';
         name.textContent = game.name;
@@ -142,7 +158,6 @@ fetch('data.json')
         // CLICK GAME NAME
         name.addEventListener('click', () => {
 
-          // reset all
           document.querySelectorAll('.image-container').forEach(el => {
             el.style.display = 'none';
             el.classList.remove('active');
@@ -152,13 +167,12 @@ fetch('data.json')
             el.classList.remove('active');
           });
 
-          // activate this one
           imageContainer.style.display = 'block';
           imageContainer.classList.add('active');
           name.classList.add('active');
         });
 
-        // LIGHTBOX CLICK
+        // LIGHTBOX
         img.addEventListener('click', () => {
           const lightbox = document.getElementById('lightbox');
           const lightboxImg = document.getElementById('lightbox-img');
@@ -167,11 +181,11 @@ fetch('data.json')
           lightboxImg.src = img.src;
         });
 
-        gamesDiv.appendChild(name);
-        gamesDiv.appendChild(imageContainer);
+        gameBlock.appendChild(name);
+        gameBlock.appendChild(imageContainer);
+        gamesDiv.appendChild(gameBlock);
       });
 
-      // TOGGLE CONSOLE
       header.addEventListener('click', () => {
         gamesDiv.style.display =
           gamesDiv.style.display === 'block' ? 'none' : 'block';
