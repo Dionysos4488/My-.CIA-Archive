@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Retro CIA Archive</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0d1117;
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      margin: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #444;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .game {
+      margin: 10px;
+      width: 150px;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Retro CIA Archive</h1>
+<div id="content"></div>
+
+<script>
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementById('content');
+
+    for (const console in data) {
+      const section = document.createElement('div');
+
+      const title = document.createElement('h2');
+      title.textContent = console;
+      section.appendChild(title);
+
+      const gamesDiv = document.createElement('div');
+      gamesDiv.className = 'games';
+
+      data[console].forEach(game => {
+        const div = document.createElement('div');
+        div.className = 'game';
+
+        const img = document.createElement('img');
+        img.src = game.image;
+
+        const name = document.createElement('p');
+        name.textContent = game.name;
+
+        div.appendChild(img);
+        div.appendChild(name);
+        gamesDiv.appendChild(div);
+      });
+
+      section.appendChild(gamesDiv);
+      content.appendChild(section);
+    }
+  });
+</script>
+
+</body>
+</html>
