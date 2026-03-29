@@ -44,7 +44,7 @@
     }
 
     .game-block {
-      margin-bottom: 25px; /* spacing between games */
+      margin-bottom: 35px; /* more spacing between games */
     }
 
     .game-name {
@@ -65,18 +65,19 @@
 
     .image-container {
       display: none;
-      margin-top: 10px; /* space between name and image */
+      margin-top: 15px;
+      margin-bottom: 15px; /* prevents overlap below */
     }
 
     .image-container img {
       width: 150px;
       border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .image-container.active img {
-      transform: scale(1.3);
+      width: 195px; /* 30% bigger WITHOUT overlap */
     }
 
     /* LIGHTBOX */
@@ -86,7 +87,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: black; /* FULL BLACK */
+      background: black;
       display: none;
       flex-direction: column;
       justify-content: center;
@@ -96,7 +97,7 @@
 
     .lightbox-text {
       color: white;
-      font-size: 28px; /* BIG TEXT */
+      font-size: 28px;
       margin-bottom: 20px;
       font-weight: bold;
     }
@@ -155,10 +156,8 @@ fetch('data.json')
 
         imageContainer.appendChild(img);
 
-        // CLICK GAME NAME
         name.addEventListener('click', () => {
 
-          // reset all
           document.querySelectorAll('.image-container').forEach(el => {
             el.style.display = 'none';
             el.classList.remove('active');
@@ -168,13 +167,11 @@ fetch('data.json')
             el.classList.remove('active');
           });
 
-          // activate this one
           imageContainer.style.display = 'block';
           imageContainer.classList.add('active');
           name.classList.add('active');
         });
 
-        // LIGHTBOX
         img.addEventListener('click', () => {
           const lightbox = document.getElementById('lightbox');
           const lightboxImg = document.getElementById('lightbox-img');
@@ -188,7 +185,6 @@ fetch('data.json')
         gamesDiv.appendChild(block);
       });
 
-      // TOGGLE CONSOLE
       header.addEventListener('click', () => {
         gamesDiv.style.display =
           gamesDiv.style.display === 'block' ? 'none' : 'block';
@@ -200,7 +196,6 @@ fetch('data.json')
     }
   });
 
-// CLOSE LIGHTBOX
 document.getElementById('lightbox').addEventListener('click', () => {
   document.getElementById('lightbox').style.display = 'none';
 });
