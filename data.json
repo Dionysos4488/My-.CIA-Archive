@@ -2,17 +2,17 @@
   "GB": [
     {
       "name": "Pokémon Gelbe Edition (Germany)",
-      "image": "Files/GB/Pokémon Gelbe Edition (Germany)/QR Pokémon Gelbe Edition.png"
+      "image": "FILES/GB/Pokémon Gelbe Edition (Germany)/QR Pokémon Gelbe Edition.png"
     },
     {
       "name": "Sushi Gun! (gbstudio)",
-      "image": "Files/GB/Sushi Gun! (gbstudio)/QR Sushi Gun!.png"
+      "image": "FILES/GB/Sushi Gun! (gbstudio)/QR Sushi Gun!.png"
     }
   ],
   "GBA": [
     {
       "name": "The Legend of Zelda The Minish Cap (Europe) (En,Fr,De,Es,It)",
-      "image": "Files/GBA/The Legend of Zelda The Minish Cap (Europe) (En,Fr,De,Es,It)/QR The Legend of Zelda The Minish Cap.png"
+      "image": "FILES/GBA/The Legend of Zelda The Minish Cap (Europe) (En,Fr,De,Es,It)/QR The Legend of Zelda The Minish Cap.png"
     }
   ]
 }
