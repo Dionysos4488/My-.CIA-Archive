@@ -18,7 +18,7 @@
     }
 
     .console {
-      margin: 15px auto;
+      margin: 20px auto;
       max-width: 800px;
       border: 1px solid #333;
       border-radius: 10px;
@@ -44,7 +44,7 @@
     }
 
     .game-block {
-      margin-bottom: 20px; /* SPACE BETWEEN GAMES */
+      margin-bottom: 25px; /* spacing between games */
     }
 
     .game-name {
@@ -65,7 +65,7 @@
 
     .image-container {
       display: none;
-      margin-top: 10px; /* SPACE ABOVE IMAGE */
+      margin-top: 10px; /* space between name and image */
     }
 
     .image-container img {
@@ -96,9 +96,9 @@
 
     .lightbox-text {
       color: white;
-      margin-bottom: 15px;
-      font-size: 18px;
-      opacity: 0.8;
+      font-size: 28px; /* BIG TEXT */
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
     .lightbox img {
@@ -116,7 +116,7 @@
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <div class="lightbox-text">click here to close</div>
+  <div class="lightbox-text">CLICK HERE TO CLOSE</div>
   <img id="lightbox-img">
 </div>
 
@@ -140,8 +140,8 @@ fetch('data.json')
 
       data[console].forEach(game => {
 
-        const gameBlock = document.createElement('div');
-        gameBlock.className = 'game-block';
+        const block = document.createElement('div');
+        block.className = 'game-block';
 
         const name = document.createElement('div');
         name.className = 'game-name';
@@ -158,6 +158,7 @@ fetch('data.json')
         // CLICK GAME NAME
         name.addEventListener('click', () => {
 
+          // reset all
           document.querySelectorAll('.image-container').forEach(el => {
             el.style.display = 'none';
             el.classList.remove('active');
@@ -167,6 +168,7 @@ fetch('data.json')
             el.classList.remove('active');
           });
 
+          // activate this one
           imageContainer.style.display = 'block';
           imageContainer.classList.add('active');
           name.classList.add('active');
@@ -181,11 +183,12 @@ fetch('data.json')
           lightboxImg.src = img.src;
         });
 
-        gameBlock.appendChild(name);
-        gameBlock.appendChild(imageContainer);
-        gamesDiv.appendChild(gameBlock);
+        block.appendChild(name);
+        block.appendChild(imageContainer);
+        gamesDiv.appendChild(block);
       });
 
+      // TOGGLE CONSOLE
       header.addEventListener('click', () => {
         gamesDiv.style.display =
           gamesDiv.style.display === 'block' ? 'none' : 'block';
